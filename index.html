@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدرسة الشهيد ياسين - بني حماد</title>
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:Tajawal, sans-serif;}
+body {background:#F4F6F7; overflow-x:hidden; text-align:center;}
+
+/* الهيدر */
+header {
+  background:#1A374D;
+  color:white;
+  padding:50px 20px 20px 20px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.header-main {
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+header h1 {
+  font-size:26px;
+  font-weight:bold;
+  margin-top:20px;
+  text-align:center;
+}
+.eagle { width:70px; height:auto; animation: flagMove 2s ease-in-out infinite alternate; }
+.side-text {
+  position:absolute;
+  right:15px;
+  top:15px;
+  font-size:12px;
+  line-height:1.6;
+}
+.menu-btn {
+  position:absolute;
+  left:20px;
+  top:20px;
+  font-size:26px;
+  cursor:pointer;
+  background:#FF8C00;
+  padding:5px 12px;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  z-index:3;
+}
+.exit-btn {
+  position:absolute;
+  right:20px;
+  top:20px;
+  display:none;
+  z-index:10;
+  padding:5px 12px;
+  background:#e53935;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* الشريط الجانبي */
+.sidebar {
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100%;
+  background:#1A374D;
+  color:white;
+  padding-top:80px;
+  transition: left 0.4s ease;
+  z-index:5;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+.sidebar button {
+  display:block;
+  padding:15px 20px;
+  color:white;
+  font-size:18px;
+  margin-bottom:5px;
+  border-radius:8px;
+  transition:0.3s;
+  background:none;
+  border:none;
+  text-align:right;
+  cursor:pointer;
+}
+.sidebar button:hover {
+  background:#162b45;
+}
+
+/* الصفحة الرئيسية */
+.hero {
+  min-height:100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position: relative;
+  padding-top:50px;
+  z-index:1;
+}
+.hero .welcome-text {
+  font-size:36px;
+  font-weight:bold;
+  color:#1A374D;
+  text-align:center;
+  margin-bottom:40px;
+}
+.hero .flag {
+  width:70%;
+  max-width:600px;
+  height:auto;
+  margin-bottom:40px;
+  animation: floatFlag 3s ease-in-out infinite alternate;
+}
+
+/* أزرار متحركة */
+.hero .btn{
+  padding:18px 80px;
+  font-size:22px;
+  font-weight:bold;
+  border:none;
+  border-radius:12px;
+  background-color:#1A374D;
+  color:white;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  transition:all 0.3s ease;
+  margin-bottom:20px;
+}
+.hero .btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 25px rgba(0,0,0,0.4);
+  background:#162b45;
+}
+.hero .btn:active{
+  transform:scale(0.95);
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+.hero .btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+  transition:0.5s;
+}
+.hero .btn:hover::before{
+  left:100%;
+}
+
+/* Footer */
+footer {
+  background:#1A374D;
+  color:white;
+  text-align:center;
+  padding:15px 0;
+  margin-top:20px;
+}
+
+/* Animations */
+@keyframes floatFlag{
+  0%{ transform: translateY(0);}
+  50%{ transform: translateY(-10px);}
+  100%{ transform: translateY(0);}
+}
+@keyframes flagMove{
+  0%{ transform: translateY(0);}
+  50%{ transform: translateY(-8px);}
+  100%{ transform: translateY(0);}
+}
+
+@media(max-width:768px){
+  .hero .welcome-text{font-size:26px;margin-bottom:25px;}
+  .hero .flag{width:90%;margin-bottom:30px;}
+  .hero .btn{font-size:18px;padding:15px 50px;}
+  .sidebar {width:200px; left:-200px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <button class="exit-btn" id="exit-btn" onclick="backToHome()">خروج</button>
+  <div class="header-main">
+    <img class="eagle" src="eagle.png" alt="شعار الطير" id="logo">
+    <h1 id="school-name">مدرسة الشهيد ياسين - بني حماد</h1>
+  </div>
+  <div class="side-text" id="side-text">
+    الجمهورية اليمنية<br>
+    وزارة التربية والتعليم<br>
+    مكتب التربية محافظة تعز
+  </div>
+</header>
+
+<!-- الشريط الجانبي -->
+<div class="sidebar" id="sidebar">
+  <button onclick="hideHeader(); window.location.href='about.html'">عن المدرسة</button>
+  <button onclick="hideHeader(); window.location.href='results.html'">النتائج الدراسية</button>
+</div>
+
+<div class="hero" id="hero">
+  <h2 class="welcome-text" id="welcome-text">مرحبا بكم في مدرسة الشهيد ياسين - بني حماد</h2>
+  <img class="flag" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg">
+
+  <button class="btn" onclick="hideHeader(); window.location.href='about.html'">عن المدرسة</button>
+  <button class="btn" onclick="hideHeader(); window.location.href='results.html'">النتائج الدراسية</button>
+</div>
+
+<footer>
+  &copy; 2026 مدرسة الشهيد ياسين - بني حماد
+</footer>
+
+<script>
+function toggleMenu() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.style.left = sidebar.style.left === '0px' ? '-260px' : '0px';
+}
+
+document.addEventListener('click', function(e){
+  const sidebar = document.getElementById('sidebar');
+  const btn = document.querySelector('.menu-btn');
+  if(!sidebar.contains(e.target) && !btn.contains(e.target)) sidebar.style.left='-260px';
+});
+
+function hideHeader(){
+  document.getElementById('logo').style.display='none';
+  document.getElementById('school-name').style.display='none';
+  document.getElementById('side-text').style.display='none';
+  document.getElementById('welcome-text').style.display='none';
+  showExitBtn();
+}
+
+function showExitBtn(){
+  document.getElementById('exit-btn').style.display='block';
+}
+
+function backToHome(){
+  document.getElementById('hero').style.display='flex';
+  document.getElementById('logo').style.display='block';
+  document.getElementById('school-name').style.display='block';
+  document.getElementById('side-text').style.display='block';
+  document.getElementById('welcome-text').style.display='block';
+  document.getElementById('exit-btn').style.display='none';
+}
+</script>
+
+</body>
+</html>

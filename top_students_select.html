@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختيار الصف للطلاب المتفوقين</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tajawal,sans-serif;}
+body{background:#F4F6F7;text-align:center;}
+header{background:#1A374D;color:white;padding:50px 20px 20px 20px;position:relative;}
+header h1{font-size:26px;margin-top:20px;}
+.exit-btn{position:absolute;right:20px;top:20px;padding:5px 12px;background:#e53935;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:bold;}
+.container{padding:30px 20px;}
+button.class-btn{padding:15px 30px;margin:10px;font-size:18px;border:none;border-radius:10px;background:#1A374D;color:white;cursor:pointer;transition:0.3s;}
+button.class-btn:hover{background:#162b45;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>اختر الصف</h1>
+<button class="exit-btn" onclick="window.location.href='results_home.html'">رجوع</button>
+</header>
+
+<div class="container">
+<button class="class-btn" onclick="goTopStudents('الروضـوا')">الروضـوا</button>
+<button class="class-btn" onclick="goTopStudents('الأول')">الأول</button>
+<button class="class-btn" onclick="goTopStudents('الثاني')">الثاني</button>
+<button class="class-btn" onclick="goTopStudents('الثالث')">الثالث</button>
+<button class="class-btn" onclick="goTopStudents('الرابع')">الرابع</button>
+<button class="class-btn" onclick="goTopStudents('الخامس')">الخامس</button>
+<button class="class-btn" onclick="goTopStudents('السادس')">السادس</button>
+<button class="class-btn" onclick="goTopStudents('السابع')">السابع</button>
+<button class="class-btn" onclick="goTopStudents('الثامن')">الثامن</button>
+<button class="class-btn" onclick="goTopStudents('التاسع')">التاسع</button>
+<button class="class-btn" onclick="goTopStudents('الأول الثانوي')">الأول الثانوي</button>
+<button class="class-btn" onclick="goTopStudents('الثاني الثانوي')">الثاني الثانوي</button>
+<button class="class-btn" onclick="goTopStudents('الثالث الثانوي')">الثالث الثانوي</button>
+</div>
+
+<script>
+function goTopStudents(className){
+  window.location.href='top_students.html?class='+encodeURIComponent(className);
+}
+</script>
+
+</body>
+</html>

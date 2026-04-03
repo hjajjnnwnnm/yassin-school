@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>النتائج الدراسية - الصفحة الرئيسية</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tajawal,sans-serif;}
+body{background:#F4F6F7;text-align:center;}
+header{background:#1A374D;color:white;padding:50px 20px 20px 20px;position:relative;}
+header h1{font-size:26px;margin-top:20px;}
+.menu-btn{position:absolute;left:20px;top:20px;font-size:26px;cursor:pointer;background:#FF8C00;padding:5px 12px;border-radius:8px;color:white;font-weight:bold;}
+.exit-btn{position:absolute;right:20px;top:20px;padding:5px 12px;background:#e53935;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:bold;}
+.container{padding:30px 20px;}
+.action-btn{padding:20px 50px;margin:20px;font-size:20px;font-weight:bold;border:none;border-radius:10px;background:#1A374D;color:white;cursor:pointer;transition:0.3s;}
+.action-btn:hover{background:#162b45;transform:scale(1.05);}
+</style>
+</head>
+<body>
+
+<header>
+<h1>النتائج الدراسية</h1>
+<button class="menu-btn" onclick="alert('الشريط الجانبي');">☰</button>
+<button class="exit-btn" onclick="window.location.href='index.html'">خروج</button>
+</header>
+
+<div class="container">
+<button class="action-btn" onclick="window.location.href='student_result.html'">استعلام عن نتيجة الطلاب</button>
+<button class="action-btn" onclick="window.location.href='top_students_select.html'">استعلام عن الطلاب المتفوقين</button>
+</div>
+
+</body>
+</html>
